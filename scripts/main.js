@@ -146,7 +146,7 @@ function addProduct(index) {
             $('.added').css('left', '-300px');
         }, 2000)
 
-        localStorage.setItem('arr', JSON.stringify(arr));
+        localStorage.setItem('array', JSON.stringify(arr));
     }
 }
 
@@ -183,20 +183,20 @@ function displayProducts() {
 function deleteProduct(index) {
 
     arr.splice(index, 1);
-    localStorage.setItem('arr', JSON.stringify(arr));
+    localStorage.setItem('array', JSON.stringify(arr));
     displayProducts();
 }
 
 function inc(index) {
     arr[index].proAmount++;
-    localStorage.setItem('arr', JSON.stringify(arr));
+    localStorage.setItem('array', JSON.stringify(arr));
     displayProducts();
 }
 
 function dec(index) {
     if (arr[index].proAmount > 1) {
         arr[index].proAmount--;
-        localStorage.setItem('arr', JSON.stringify(arr));
+        localStorage.setItem('array', JSON.stringify(arr));
         displayProducts();
     } else {
         deleteProduct(index);
@@ -205,7 +205,7 @@ function dec(index) {
 
 //store
 $(window).on('load', () => {
-    let stored = localStorage.getItem('arr');
+    let stored = localStorage.getItem('array');
     let mode = localStorage.getItem('mode');
 
     if (stored) {
@@ -288,3 +288,4 @@ $('.fa-list.active').click(() => {
         opened2 = false;
     }
 })
+
